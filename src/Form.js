@@ -1,47 +1,33 @@
 import { useState } from "react";
 
-
-
 const FormInput = ({
     index, item,
     editingIndex, setEditingIndex,
-    todos, setTodos,
-    onUpdated
+    todos, setTodos
 }) => {
 
     const [value, setValue] = useState(item.text);
-    const [update, setUpdate] = useState([]);
-    const [array, setArray] = useState()
 
     function handelEditInputChange(e) {
         setValue(e.target.value)
     }
 
     function handelEditFormSubmit(e) {
-        console.log("Index :", index + " Text :" + value)
-        onUpdated(index, value)
         e.preventDefault();
 
         const updateItem = todos.map((item) => {
             return item.id === index ? { id: index, text: value } : item;
         });
-        console.log("UpdateItem : ", updateItem);
-
         setTodos(updateItem);
-
-
         setFalse(index);
     }
-
 
     function setFalse(revIndex) {
         const removeIndex = editingIndex.filter((index) => {
             return index !== revIndex
         })
         setEditingIndex(removeIndex)
-        console.log("Cancel index : " + revIndex)
     }
-
 
     return (
         <form onSubmit={handelEditFormSubmit}>
