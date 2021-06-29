@@ -19,7 +19,6 @@ const App = () => {
     if (todo !== "") {
       setTodos([...todos, { id: todos.length, text: todo }])
     }
-    console.log("Todos :", todos)
     setTodo("");
   }
   console.log("todos : ", todos)
@@ -40,10 +39,15 @@ const App = () => {
 
   function handleDelete(id) {
     const removeItem = todos.filter((item) => {
-
       return item.id !== id
     })
-    setTodos(removeItem);
+
+    const newItem = removeItem.map((item, index) => {
+      return { 'id': index, 'text': item.text }
+    })
+    console.log("Update ID :", newItem)
+
+    setTodos(newItem);
   }
 
 
