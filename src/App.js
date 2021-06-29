@@ -21,19 +21,14 @@ const App = () => {
     }
     setTodo("");
   }
-  console.log("todos : ", todos)
 
 
   function handleEdit(item, index) {
     setEditingIndex([...editingIndex, index])
-
-    console.log("Index : ", index)
-    console.log("Item : ", item)
   }
 
 
   useEffect(() => {
-    console.log("Index List", editingIndex)
   }, [editingIndex])
 
 
@@ -45,7 +40,6 @@ const App = () => {
     const newItem = removeItem.map((item, index) => {
       return { 'id': index, 'text': item.text }
     })
-    console.log("Update ID :", newItem)
 
     setTodos(newItem);
   }
