@@ -75,7 +75,7 @@ const FormInput = ({
 
     return (
         <form onSubmit={handelEditFormSubmit} key={item.id}>
-            <Card className={classes.root} style={{ backgroundColor: "#F48880" }}>
+            <Card className={classes.root} style={{ backgroundColor: "#efefef " }}>
                 <Grid container spacing={3}>
                     <Grid item xs={7}>
 
@@ -91,12 +91,12 @@ const FormInput = ({
 
                     </Grid>
                     <Grid item xs={2.5}>
-                        <Button className={classes.button} style={{ backgroundColor: "#eae8dc" }} variant="contained" type="submit">
+                        <Button className={classes.button} style={{ backgroundColor: "#00a11d" }} variant="contained" type="submit">
                             &nbsp;&nbsp; UPDATE &nbsp;&nbsp;
                         </Button>
                     </Grid>
                     <Grid item xs={2.5}>
-                        <Button className={classes.button} style={{ backgroundColor: "#8e8d89" }} variant="contained" onClick={() => setFalse(item.id)}>
+                        <Button className={classes.button} style={{ backgroundColor: "#ff1100" }} variant="contained" onClick={() => setFalse(item.id)}>
                             CANCEL
                         </Button>
                     </Grid>

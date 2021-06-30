@@ -2,7 +2,7 @@
   text-align: center;
   background-color: #272727;
   color: red;
-  height: 1080px;
+  min-height: 1080px;
   margin-top: -25px;
 }
 

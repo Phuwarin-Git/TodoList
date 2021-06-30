@@ -111,7 +111,7 @@ const App = () => {
                 setTodos={setTodos}
               />) :
               (<div key={item.id}>
-                <Card className={classes.root} style={{ backgroundColor: "#e85a50" }}>
+                <Card className={classes.root} style={{ backgroundColor: "#efefef " }}>
                   <Grid container spacing={3}>
                     <Grid item xs={7}>
                       <Paper className={classes.paper}>
@@ -119,12 +119,12 @@ const App = () => {
                       </Paper>
                     </Grid>
                     <Grid item xs={2.5}>
-                      <Button className={classes.button} style={{ backgroundColor: "#d8c3a4" }} variant="contained" onClick={() => handleEdit(item.id)}>
+                      <Button className={classes.button} style={{ backgroundColor: "#FFA500  " }} variant="contained" onClick={() => handleEdit(item.id)}>
                         &nbsp;&nbsp; EDIT &nbsp;&nbsp;
                       </Button>
                     </Grid>
                     <Grid item xs={2.5}>
-                      <Button className={classes.button} style={{ backgroundColor: "#5b5454" }} variant="contained" onClick={() => handleDelete(item.id)}>
+                      <Button className={classes.button} style={{ backgroundColor: "#ff1100" }} variant="contained" onClick={() => handleDelete(item.id)}>
                         DELETE
                       </Button>
                     </Grid>
