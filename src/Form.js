@@ -14,7 +14,6 @@ const FormInput = ({
 
     function handelEditFormSubmit(e) {
         e.preventDefault();
-
         const updateItem = todos.map((up) => {
             return up.id === item.id ? { id: item.id, text: value } : up;
         });

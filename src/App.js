@@ -1,7 +1,8 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import FormInput from './Form';
+import uniqueID from './uniqueID';
 
 const App = () => {
 
@@ -21,27 +22,11 @@ const App = () => {
     }
     setTodo("");
   }
-  console.log("todos : ", todos, "todos.length : ", todos.length)
 
 
   function handleEdit(ID) {
-
     setEditingIndex([...editingIndex, ID])
-    console.log("List ID :", editingIndex)
   }
-
-  function uniqueID() {
-    function chr4() {
-      return Math.random().toString(16).slice(-4);
-    }
-    return chr4() + chr4() +
-      '-' + chr4() +
-      '-' + chr4() +
-      '-' + chr4() +
-      '-' + chr4() + chr4() + chr4();
-  }
-
-
 
   function handleDelete(id) {
     const removeItem = todos.filter((item) => {
