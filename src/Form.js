@@ -30,7 +30,7 @@ const FormInput = ({
     }
 
     return (
-        <form onSubmit={handelEditFormSubmit}>
+        <form onSubmit={handelEditFormSubmit} key={item.id}>
             <label>Edit todo</label>
             {" "}
             <input
@@ -38,7 +38,7 @@ const FormInput = ({
                 name="editTodo"
                 placeholder="Edit Todo"
                 defaultValue={item.text}
-                value={todos.text}
+                value={value.text}
                 onChange={handelEditInputChange}
             />
             {" "}

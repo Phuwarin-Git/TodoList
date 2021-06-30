@@ -42,29 +42,12 @@ const App = () => {
   }
 
 
-  // useEffect(() => {
-  //   console.log("Index List", editingIndex)
-  // }, [editingIndex])
-
 
   function handleDelete(id) {
     const removeItem = todos.filter((item) => {
       return item.id !== id
     })
     setTodos(removeItem);
-
-    // const newItem = removeItem.map((item, index) => {
-    //   return { 'id': index, 'text': item.text }
-    // })
-    // console.log("Update ID :", newItem)
-    // setTodos(newItem);
-
-    // const updateIndex = editingIndex.map((item) => {
-    //   return id < item ? item - 1 : item;
-    // });
-    // console.log("UpdateIndex :", updateIndex)
-    // setEditingIndex(updateIndex);
-
   }
 
 
