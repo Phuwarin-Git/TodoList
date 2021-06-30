@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const FormInput = ({
-    index, item,
+    item,
     editingIndex, setEditingIndex,
     todos, setTodos
 }) => {
@@ -15,16 +15,16 @@ const FormInput = ({
     function handelEditFormSubmit(e) {
         e.preventDefault();
 
-        const updateItem = todos.map((item) => {
-            return item.id === index ? { id: index, text: value } : item;
+        const updateItem = todos.map((up) => {
+            return up.id === item.id ? { id: item.id, text: value } : up;
         });
         setTodos(updateItem);
-        setFalse(index);
+        setFalse(item.id);
     }
 
     function setFalse(revIndex) {
-        const removeIndex = editingIndex.filter((index) => {
-            return index !== revIndex
+        const removeIndex = editingIndex.filter((item) => {
+            return item !== revIndex
         })
         setEditingIndex(removeIndex)
     }
@@ -38,12 +38,12 @@ const FormInput = ({
                 name="editTodo"
                 placeholder="Edit Todo"
                 defaultValue={item.text}
-                value={value}
+                value={todos.text}
                 onChange={handelEditInputChange}
             />
             {" "}
-            <button type="submit"   >Update</button> {" "}
-            <button onClick={() => setFalse(index)}>Cancel</button>
+            <button type="submit">Update</button> {" "}
+            <button onClick={() => setFalse(item.id)}>Cancel</button>
         </form>
     )
 }

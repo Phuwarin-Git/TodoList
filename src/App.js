@@ -17,31 +17,54 @@ const App = () => {
   function handleFormSubmit(e) {
     e.preventDefault();
     if (todo !== "") {
-      setTodos([...todos, { id: todos.length, text: todo }])
+      setTodos([...todos, { id: uniqueID(), text: todo }])
     }
     setTodo("");
   }
+  console.log("todos : ", todos, "todos.length : ", todos.length)
 
 
-  function handleEdit(item, index) {
-    setEditingIndex([...editingIndex, index])
+  function handleEdit(ID) {
+
+    setEditingIndex([...editingIndex, ID])
+    console.log("List ID :", editingIndex)
+  }
+
+  function uniqueID() {
+    function chr4() {
+      return Math.random().toString(16).slice(-4);
+    }
+    return chr4() + chr4() +
+      '-' + chr4() +
+      '-' + chr4() +
+      '-' + chr4() +
+      '-' + chr4() + chr4() + chr4();
   }
 
 
-  useEffect(() => {
-  }, [editingIndex])
+  // useEffect(() => {
+  //   console.log("Index List", editingIndex)
+  // }, [editingIndex])
 
 
   function handleDelete(id) {
     const removeItem = todos.filter((item) => {
       return item.id !== id
     })
+    setTodos(removeItem);
 
-    const newItem = removeItem.map((item, index) => {
-      return { 'id': index, 'text': item.text }
-    })
+    // const newItem = removeItem.map((item, index) => {
+    //   return { 'id': index, 'text': item.text }
+    // })
+    // console.log("Update ID :", newItem)
+    // setTodos(newItem);
 
-    setTodos(newItem);
+    // const updateIndex = editingIndex.map((item) => {
+    //   return id < item ? item - 1 : item;
+    // });
+    // console.log("UpdateIndex :", updateIndex)
+    // setEditingIndex(updateIndex);
+
   }
 
 
@@ -62,9 +85,9 @@ const App = () => {
           <button type="submit">Add</button>
           <br />
         </form>
-          {todos.map((item, index) => {
-            return editingIndex.includes(index) ? (
-              <FormInput index={index} item={item}
+          {todos.map((item) => {
+            return editingIndex.includes(item.id) ? (
+              <FormInput item={item}
                 editingIndex={editingIndex}
                 setEditingIndex={setEditingIndex}
                 todos={todos}
@@ -72,7 +95,7 @@ const App = () => {
               />) :
               (<div key={item.id}>
                 {item.text} {" "}
-                <button onClick={() => handleEdit(item, index)}>Edit</button>{" "}{" "}
+                <button onClick={() => handleEdit(item.id)}>Edit</button>{" "}{" "}
                 <button onClick={() => handleDelete(item.id)}>Delete</button>
               </div>
               )
